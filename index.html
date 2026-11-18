@@ -2,2850 +2,4688 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Academic portfolio of Oussama BEY, researcher in automatic control, robotics, adaptive nonlinear control, artificial intelligence, and assistive technologies."
-    >
-
-    <title>
-        Oussama BEY — Researcher in Automatic Control and Robotics
-    </title>
-
-    <style>
-        :root {
-            --ink: #172033;
-            --paper: #f4f7fb;
-            --soft: #eaf0ff;
-            --accent: #3157a4;
-            --accent-dark: #1d3974;
-            --accent-light: rgba(49, 87, 164, 0.12);
-            --accent-glow: rgba(49, 87, 164, 0.09);
-            --muted: #606b7d;
-            --line: #dfe5ef;
-            --white: #ffffff;
-            --warning: #8a6d2b;
-            --warning-background: #f4ecd8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            overflow-x: hidden;
-            background: var(--paper);
-            color: var(--ink);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        button,
-        a {
-            font: inherit;
-        }
-
-        ::selection {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        /* ========================================
-           Top navigation
-        ======================================== */
-
-        .topbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 200;
-            display: flex;
-            flex-direction: column;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--line);
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .topbar-upper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            height: 54px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            color: var(--ink);
-            font-size: 1.25rem;
-            font-weight: 750;
-            letter-spacing: 0.02em;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .topbar-socials {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-        }
-
-        .topbar-social {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.35rem 0.65rem;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            color: var(--muted);
-            font-size: 0.68rem;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.25s ease;
-        }
-
-        .topbar-social:hover {
-            background: var(--soft);
-            border-color: var(--line);
-            color: var(--accent);
-        }
-
-        .nav-tabs {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .nav-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .nav-tab {
-            padding: 0.78rem 1.35rem;
-            border: none;
-            border-bottom: 3px solid transparent;
-            background: none;
-            color: var(--muted);
-            font-size: 0.78rem;
-            font-weight: 650;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
-
-        .nav-tab:hover {
-            color: var(--ink);
-        }
-
-        .nav-tab.active {
-            border-bottom-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* ========================================
-           Page system
-        ======================================== */
-
-        .pages-wrapper {
-            min-height: 100vh;
-            padding-top: 104px;
-        }
-
-        .page {
-            display: none;
-            min-height: calc(100vh - 104px);
-            animation: pageIn 0.45s ease-out;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .page-inner {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3.2rem 2.3rem 5rem;
-        }
-
-        .page-title-row {
-            display: flex;
-            align-items: center;
-            gap: 1.1rem;
-            margin-bottom: 2.8rem;
-        }
-
-        .page-num {
-            color: var(--accent);
-            font-size: 2.5rem;
-            font-weight: 300;
-            line-height: 1;
-            opacity: 0.42;
-        }
-
-        .page-title {
-            font-size: 2rem;
-            font-weight: 650;
-        }
-
-        .page-line {
-            flex: 1;
-            height: 1px;
-            background: var(--line);
-        }
-
-        /* ========================================
-           Home
-        ======================================== */
-
-        .hero-page {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 104px);
-            padding: 2.2rem 2.4rem;
-            overflow: hidden;
-        }
-
-        .hero-page::before {
-            content: "";
-            position: absolute;
-            top: -18%;
-            right: -12%;
-            width: 620px;
-            height: 620px;
-            border-radius: 50%;
-            background: radial-gradient(
-                circle,
-                var(--accent-glow) 0%,
-                transparent 70%
-            );
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            align-items: center;
-            gap: 4.3rem;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .hero-text {
-            animation: fadeUp 0.75s ease-out;
-        }
-
-        .hero-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.45rem;
-            color: var(--accent);
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .hero-tag::before {
-            content: "";
-            width: 30px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        .hero-text h1 {
-            margin-bottom: 1.45rem;
-            font-size: clamp(3rem, 5.3vw, 4.8rem);
-            font-weight: 300;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
-        }
-
-        .hero-text h1 strong {
-            color: var(--accent);
-            font-weight: 800;
-        }
-
-        .hero-description {
-            max-width: 610px;
-            margin-bottom: 1.7rem;
-            color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.85;
-        }
-
-        .hero-socials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .hero-social {
-            display: flex;
-            align-items: center;
-            gap: 0.42rem;
-            padding: 0.48rem 0.9rem;
-            border: 1.5px solid var(--line);
-            border-radius: 4px;
-            color: var(--muted);
-            font-size: 0.67rem;
-            font-weight: 650;
-            letter-spacing: 0.05em;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.25s;
-        }
-
-        .hero-social:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.72rem 1.55rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-decoration: none;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .button-primary {
-            border: 1.5px solid var(--accent);
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .button-primary:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            box-shadow: 0 8px 25px rgba(49, 87, 164, 0.22);
-            transform: translateY(-2px);
-        }
-
-        .button-outline {
-            border: 1.5px solid var(--accent);
-            background: transparent;
-            color: var(--accent);
-        }
-
-        .button-outline:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-        }
-
-        /*
-         * Corrected profile card:
-         * z-index creates a local stacking context.
-         * inset gives equal spacing on all four sides.
-         */
-
-        .hero-card {
-            position: relative;
-            z-index: 0;
-            padding: 2.1rem;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--white);
-            box-shadow: 0 18px 50px rgba(49, 87, 164, 0.10);
-            animation: fadeUp 0.75s ease-out;
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            inset: -8px;
-            z-index: -1;
-            border: 1.5px solid var(--accent);
-            border-radius: 20px;
-            pointer-events: none;
-        }
-
-        .photo-wrapper {
-            position: relative;
-            width: 112px;
-            height: 112px;
-            margin: 0 auto 1.25rem;
-        }
-
-        .hero-photo,
-        .photo-fallback {
-            width: 112px;
-            height: 112px;
-            border: 3px solid var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 8px 28px rgba(49, 87, 164, 0.15);
-        }
-
-        .hero-photo {
-            display: block;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .photo-fallback {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: var(--soft);
-            color: var(--accent);
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        .card-institution {
-            margin-bottom: 0.75rem;
-            color: var(--accent);
-            font-size: 0.69rem;
-            font-weight: 750;
-            letter-spacing: 0.1em;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .card-position {
-            margin-bottom: 0.35rem;
-            font-size: 1.35rem;
-            font-weight: 750;
-            text-align: center;
-        }
-
-        .card-field {
-            margin-bottom: 1.15rem;
-            color: var(--muted);
-            font-size: 0.84rem;
-            line-height: 1.55;
-            text-align: center;
-        }
-
-        .card-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            padding-top: 1.15rem;
-            border-top: 1px solid var(--line);
-        }
-
-        .card-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.83rem;
-        }
-
-        .card-detail-label {
-            min-width: 66px;
-            color: var(--accent);
-            font-size: 0.66rem;
-            font-weight: 750;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* Statistics */
-
-        .stats-strip {
-            padding: 2.35rem;
-            background: var(--accent-dark);
-        }
-
-        .stats-inner {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat-number {
-            color: var(--white);
-            font-size: 2.75rem;
-            font-weight: 300;
-            line-height: 1;
-        }
-
-        .stat-label {
-            margin-top: 0.45rem;
-            color: rgba(255, 255, 255, 0.64);
-            font-size: 0.74rem;
-            font-weight: 650;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-        }
-
-        /* ========================================
-           Education
-        ======================================== */
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 2px;
-            background: var(--line);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.25rem;
-            padding-left: 2rem;
-            opacity: 0;
-            animation: fadeLeft 0.5s ease-out forwards;
-        }
-
-        .timeline-item:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-
-        .timeline-item:nth-child(2) {
-            animation-delay: 0.12s;
-        }
-
-        .timeline-item:nth-child(3) {
-            animation-delay: 0.19s;
-        }
-
-        .timeline-item:nth-child(4) {
-            animation-delay: 0.26s;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            top: 8px;
-            left: -2.38rem;
-            width: 11px;
-            height: 11px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            background: var(--paper);
-        }
-
-        .timeline-item:first-child::before {
-            background: var(--accent);
-        }
-
-        .timeline-date {
-            margin-bottom: 0.3rem;
-            color: var(--accent);
-            font-size: 0.72rem;
-            font-weight: 750;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .timeline-degree {
-            margin-bottom: 0.2rem;
-            font-size: 1.2rem;
-            font-weight: 750;
-        }
-
-        .timeline-place {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .timeline-details {
-            max-width: 850px;
-            margin-top: 0.35rem;
-            color: var(--muted);
-            font-size: 0.84rem;
-            font-style: italic;
-        }
-
-        /* ========================================
-           Research
-        ======================================== */
-
-        .research-axes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        .research-card {
-            position: relative;
-            padding: 1.75rem;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-            opacity: 0;
-            animation: fadeUp 0.5s ease-out forwards;
-            transition: 0.35s;
-        }
-
-        .research-card:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-
-        .research-card:nth-child(2) {
-            animation-delay: 0.15s;
-        }
-
-        .research-card:nth-child(3) {
-            animation-delay: 0.25s;
-        }
-
-        .research-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: 0.4s;
-        }
-
-        .research-card:hover {
-            box-shadow: 0 14px 40px rgba(49, 87, 164, 0.10);
-            transform: translateY(-5px);
-        }
-
-        .research-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .research-icon {
-            margin-bottom: 0.8rem;
-            color: var(--accent);
-            font-size: 1.65rem;
-        }
-
-        .research-title {
-            margin-bottom: 0.6rem;
-            font-size: 1.08rem;
-            font-weight: 750;
-        }
-
-        .research-description {
-            color: var(--muted);
-            font-size: 0.84rem;
-            line-height: 1.7;
-        }
-
-        .research-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.35rem;
-            margin-top: 0.85rem;
-        }
-
-        .research-tag {
-            padding: 0.22rem 0.56rem;
-            border-radius: 3px;
-            background: var(--soft);
-            color: var(--accent-dark);
-            font-size: 0.64rem;
-            letter-spacing: 0.03em;
-        }
-
-        .skills-panel {
-            margin-top: 1.35rem;
-            padding: 1.6rem;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-        }
-
-        .skills-title {
-            margin-bottom: 0.8rem;
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 750;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill {
-            padding: 0.35rem 0.7rem;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            background: var(--paper);
-            color: var(--muted);
-            font-size: 0.78rem;
-        }
-
-        /* ========================================
-           Publications
-        ======================================== */
-
-        .publication-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-bottom: 2rem;
-        }
-
-        .filter-button {
-            padding: 0.48rem 1.05rem;
-            border: 1.5px solid var(--line);
-            border-radius: 4px;
-            background: transparent;
-            color: var(--muted);
-            font-size: 0.76rem;
-            font-weight: 650;
-            letter-spacing: 0.04em;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .filter-button.active,
-        .filter-button:hover {
-            border-color: var(--accent);
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-
-        .publication-section-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2.4rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            font-size: 0.72rem;
-            font-weight: 750;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .publication-section-title:first-of-type {
-            margin-top: 0;
-        }
-
-        .publication-section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--line);
-        }
-
-        .publication-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-        }
-
-        .publication-item {
-            display: flex;
-            align-items: baseline;
-            gap: 0.8rem;
-            padding: 1rem 1.2rem;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            background: var(--white);
-            opacity: 0;
-            animation: fadeUp 0.4s ease-out forwards;
-            transition: 0.25s;
-        }
-
-        .publication-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 5px 20px rgba(49, 87, 164, 0.08);
-            transform: translateX(3px);
-        }
-
-        .publication-item.hidden {
-            display: none;
-        }
-
-        .publication-number {
-            min-width: 20px;
-            flex-shrink: 0;
-            color: var(--accent);
-            font-size: 1.05rem;
-            font-weight: 300;
-            opacity: 0.48;
-        }
-
-        .publication-content {
-            flex: 1;
-            min-width: 0;
-            font-size: 0.86rem;
-            line-height: 1.58;
-        }
-
-        .publication-authors {
-            color: var(--muted);
-        }
-
-        .publication-authors strong {
-            color: var(--ink);
-            font-weight: 750;
-        }
-
-        .publication-title {
-            color: var(--ink);
-            font-weight: 750;
-        }
-
-        .publication-venue {
-            color: var(--muted);
-            font-style: italic;
-        }
-
-        .publication-link {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px dotted var(--accent);
-        }
-
-        .publication-badge {
-            align-self: center;
-            flex-shrink: 0;
-            padding: 0.22rem 0.56rem;
-            border-radius: 3px;
-            background: var(--soft);
-            color: var(--accent);
-            font-size: 0.62rem;
-            font-weight: 750;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-
-        .publication-badge.accepted {
-            background: var(--warning-background);
-            color: var(--warning);
-        }
-
-        /* ========================================
-           Teaching
-        ======================================== */
-
-        .teaching-card {
-            padding: 2rem;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-        }
-
-        .teaching-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .teaching-item {
-            padding: 1.35rem 1.45rem;
-            border-right: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            transition: 0.25s;
-        }
-
-        .teaching-item:hover {
-            background: var(--soft);
-        }
-
-        .teaching-item:nth-child(even) {
-            border-right: none;
-        }
-
-        .teaching-item:nth-last-child(-n + 2) {
-            border-bottom: none;
-        }
-
-        .teaching-level {
-            margin-bottom: 0.45rem;
-            color: var(--accent);
-            font-size: 0.66rem;
-            font-weight: 750;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .teaching-name {
-            margin-bottom: 0.25rem;
-            font-size: 1.02rem;
-            font-weight: 750;
-        }
-
-        .teaching-description {
-            color: var(--muted);
-            font-size: 0.83rem;
-            line-height: 1.6;
-        }
-
-        .teaching-hours {
-            display: inline-block;
-            margin-top: 0.55rem;
-            padding: 0.18rem 0.48rem;
-            border-radius: 3px;
-            background: var(--soft);
-            color: var(--accent-dark);
-            font-size: 0.66rem;
-            font-weight: 650;
-        }
-
-        /* ========================================
-           Activities
-        ======================================== */
-
-        .activities-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .activity-item {
-            display: grid;
-            grid-template-columns: 125px 1fr;
-            gap: 1.2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--line);
-            opacity: 0;
-            animation: fadeUp 0.4s ease-out forwards;
-            transition: 0.25s;
-        }
-
-        .activity-item:hover {
-            transform: translateX(4px);
-        }
-
-        .activity-type {
-            padding-top: 0.1rem;
-            color: var(--accent);
-            font-size: 0.67rem;
-            font-weight: 750;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .activity-text {
-            color: var(--muted);
-            font-size: 0.89rem;
-            line-height: 1.65;
-        }
-
-        /* ========================================
-           Contact
-        ======================================== */
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.1rem;
-            font-size: 1.4rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--line);
-            color: var(--ink);
-            text-decoration: none;
-            transition: 0.25s;
-        }
-
-        .contact-link:hover {
-            color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        .contact-link-label {
-            min-width: 78px;
-            color: var(--accent);
-            font-size: 0.69rem;
-            font-weight: 750;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .contact-link-text {
-            overflow-wrap: anywhere;
-            font-size: 0.9rem;
-        }
-
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2.4rem;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-            box-shadow: 0 12px 35px rgba(49, 87, 164, 0.07);
-            text-align: center;
-        }
-
-        .contact-card strong {
-            font-size: 1.18rem;
-        }
-
-        .contact-subtitle {
-            margin-top: 0.5rem;
-            color: var(--muted);
-            font-size: 1rem;
-        }
-
-        .languages {
-            margin-top: 1.5rem;
-            color: var(--muted);
-            font-size: 0.83rem;
-        }
-
-        /* Footer */
-
-        .page-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1.5rem 2.5rem;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 0.76rem;
-        }
-
-        /* ========================================
-           Responsive design
-        ======================================== */
-
-        @media (max-width: 900px) {
-            .topbar-upper {
-                padding: 0 1.2rem;
-            }
-
-            .topbar-socials {
-                display: none;
-            }
-
-            .nav-tabs {
-                padding: 0 0.8rem;
-            }
-
-            .nav-tab {
-                padding: 0.65rem 0.95rem;
-                font-size: 0.72rem;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 2.3rem;
-            }
-
-            .hero-card {
-                width: calc(100% - 16px);
-                max-width: 530px;
-                margin: 8px auto;
-            }
-
-            .page-inner {
-                padding: 2.2rem 1.2rem 4rem;
-            }
-
-            .research-axes {
-                grid-template-columns: 1fr;
-            }
-
-            .teaching-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .teaching-item {
-                border-right: none !important;
-                border-bottom: 1px solid var(--line) !important;
-            }
-
-            .teaching-item:last-child {
-                border-bottom: none !important;
-            }
-
-            .stats-inner {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-item {
-                grid-template-columns: 1fr;
-                gap: 0.25rem;
-            }
-
-            .publication-item {
-                flex-wrap: wrap;
-            }
-
-            .page-footer {
-                flex-direction: column;
-                gap: 0.35rem;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .hero-page {
-                padding: 1.5rem 1rem;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .hero-description {
-                font-size: 0.95rem;
-            }
-
-            .stats-strip {
-                padding: 2rem 1rem;
-            }
-
-            .stats-inner {
-                gap: 1.4rem;
-            }
-
-            .stat-number {
-                font-size: 2.25rem;
-            }
-
-            .page-title {
-                font-size: 1.65rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<meta
+    name="google-site-verification"
+    content="8NNGFOrSSo1sH9DG9zpBsVz2upvi-TxsELYDIfa89RY"
+>
+
+<meta
+    name="description"
+    content="Academic portfolio of Oussama BEY, ATER at Université Paris-Saclay and researcher at the Laboratoire des Signaux et Systèmes (L2S), SYCOMORE team."
+>
+
+<title>
+    Oussama BEY — Automatic Control and Robotics
+</title>
+
+<style>
+
+:root {
+    --ink: #172033;
+    --paper: #f4f7fb;
+    --soft: #eaf0ff;
+    --accent: #3157a4;
+    --accent-dark: #1d3974;
+    --accent-light: rgba(49, 87, 164, 0.12);
+    --muted: #606b7d;
+    --line: #dfe5ef;
+    --white: #ffffff;
+    --gold: #8a6d2b;
+    --gold-bg: #f4ecd8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--white);
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid var(--line);
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.04);
+
+    backdrop-filter: blur(16px);
+}
+
+
+.topbar-upper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1200px;
+
+    height: 54px;
+
+    margin: auto;
+
+    padding:
+        0 2rem;
+}
+
+
+.logo {
+    color: var(--ink);
+
+    font-size: 1.25rem;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.logo span {
+    color: var(--accent);
+}
+
+
+.topbar-socials {
+    display: flex;
+
+    gap: 0.45rem;
+}
+
+
+.topbar-social {
+    padding:
+        0.34rem 0.6rem;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 4px;
+
+    color: var(--muted);
+
+    font-size: 0.67rem;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    transition: 0.25s;
+}
+
+
+.topbar-social:hover {
+    color: var(--accent);
+
+    background: var(--soft);
+
+    border-color: var(--line);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-tabs {
+    display: flex;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding:
+        0 1rem;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+
+.nav-tab {
+    padding:
+        0.78rem 1.35rem;
+
+    border: none;
+
+    border-bottom:
+        3px solid transparent;
+
+    background: none;
+
+    color: var(--muted);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+
+.nav-tab:hover {
+    color: var(--ink);
+}
+
+
+.nav-tab.active {
+    color: var(--accent);
+
+    border-bottom-color:
+        var(--accent);
+}
+
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+.pages-wrapper {
+    min-height: 100vh;
+
+    padding-top: 104px;
+}
+
+
+.page {
+    display: none;
+
+    min-height:
+        calc(100vh - 104px);
+
+    animation:
+        pageIn 0.45s ease-out;
+}
+
+
+.page.active {
+    display: block;
+}
+
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes fadeLeft {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+.page-inner {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        3.2rem 2.3rem 5rem;
+}
+
+
+.page-title-row {
+    display: flex;
+    align-items: center;
+
+    gap: 1.1rem;
+
+    margin-bottom: 2.8rem;
+}
+
+
+.page-num {
+    color: var(--accent);
+
+    font-size: 2.5rem;
+    font-weight: 300;
+
+    line-height: 1;
+
+    opacity: 0.42;
+}
+
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.page-line {
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--line);
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.hero-page {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height:
+        calc(100vh - 104px);
+
+    padding:
+        2.2rem 2.4rem;
+
+    overflow: hidden;
+}
+
+
+.hero-page::before {
+    content: "";
+
+    position: absolute;
+
+    top: -18%;
+    right: -12%;
+
+    width: 620px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 87, 164, 0.09),
+            transparent 70%
+        );
+}
+
+
+.hero-grid {
+    position: relative;
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+
+    align-items: center;
+
+    gap: 4.3rem;
+
+    width: 100%;
+    max-width: 1100px;
+}
+
+
+.hero-tag {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    margin-bottom: 1.45rem;
+
+    color: var(--accent);
+
+    font-size: 0.74rem;
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+
+.hero-tag::before {
+    content: "";
+
+    width: 30px;
+    height: 2px;
+
+    background: var(--accent);
+}
+
+
+.hero-text h1 {
+    margin-bottom: 1.45rem;
+
+    font-size:
+        clamp(
+            3rem,
+            5.3vw,
+            4.8rem
+        );
+
+    font-weight: 300;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.035em;
+}
+
+
+.hero-text h1 strong {
+    color: var(--accent);
+
+    font-weight: 800;
+}
+
+
+.hero-description {
+    max-width: 620px;
+
+    margin-bottom: 1.6rem;
+
+    color: var(--muted);
+
+    font-size: 1rem;
+
+    line-height: 1.85;
+}
+
+
+.hero-socials,
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+}
+
+
+.hero-socials {
+    margin-bottom: 1.7rem;
+}
+
+
+.hero-social {
+    padding:
+        0.46rem 0.86rem;
+
+    border:
+        1.5px solid var(--line);
+
+    border-radius: 4px;
+
+    color: var(--muted);
+
+    font-size: 0.67rem;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    transition: 0.25s;
+}
+
+
+.hero-social:hover {
+    border-color: var(--accent);
+
+    background:
+        var(--accent-light);
+
+    color: var(--accent);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        0.72rem 1.45rem;
+
+    border-radius: 4px;
+
+    font-size: 0.79rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.button-primary {
+    border:
+        1.5px solid var(--accent);
+
+    background: var(--accent);
+
+    color: var(--white);
+}
+
+
+.button-primary:hover {
+    background:
+        var(--accent-dark);
+
+    border-color:
+        var(--accent-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.button-outline {
+    border:
+        1.5px solid var(--accent);
+
+    background: transparent;
+
+    color: var(--accent);
+}
+
+
+.button-outline:hover {
+    background:
+        var(--accent-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* PROFILE CARD */
+
+.hero-card {
+    position: relative;
+
+    z-index: 0;
+
+    padding: 2.1rem;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 14px;
+
+    background:
+        var(--white);
+
+    box-shadow:
+        0 18px 50px
+        rgba(49, 87, 164, 0.10);
+}
+
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    z-index: -1;
+
+    border:
+        1.5px solid var(--accent);
+
+    border-radius: 20px;
+
+    pointer-events: none;
+}
+
+
+.photo-wrapper {
+    width: 112px;
+    height: 112px;
+
+    margin:
+        0 auto 1.25rem;
+}
+
+
+.hero-photo,
+.photo-fallback {
+    width: 112px;
+    height: 112px;
+
+    border:
+        3px solid var(--accent);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 28px
+        rgba(49, 87, 164, 0.15);
+}
+
+
+.hero-photo {
+    display: block;
+
+    object-fit: cover;
+
+    object-position:
+        center top;
+}
+
+
+.photo-fallback {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--soft);
+
+    color: var(--accent);
+
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+
+.card-institution {
+    margin-bottom: 0.7rem;
+
+    color: var(--accent);
+
+    font-size: 0.69rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    text-align: center;
+
+    text-transform: uppercase;
+}
+
+
+.card-position {
+    margin-bottom: 0.35rem;
+
+    font-size: 1.35rem;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+.card-field {
+    margin-bottom: 1.1rem;
+
+    color: var(--muted);
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+
+    text-align: center;
+}
+
+
+.card-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.65rem;
+
+    padding-top: 1.1rem;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+.card-detail {
+    display: flex;
+
+    gap: 0.75rem;
+
+    font-size: 0.83rem;
+}
+
+
+.card-detail-label {
+    min-width: 60px;
+
+    color: var(--accent);
+
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-strip {
+    padding: 2.35rem;
+
+    background: var(--accent-dark);
+}
+
+
+.stats-inner {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 2rem;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.stat-number {
+    color: var(--white);
+
+    font-size: 2.75rem;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+
+.stat-label {
+    margin-top: 0.45rem;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+
+    font-size: 0.73rem;
+    font-weight: 700;
+
+    letter-spacing: 0.09em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    position: relative;
+
+    padding-left: 2rem;
+}
+
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 2px;
+
+    background: var(--line);
+}
+
+
+.timeline-item {
+    position: relative;
+
+    margin-bottom: 2.25rem;
+
+    padding-left: 2rem;
+
+    animation:
+        fadeLeft 0.5s ease-out;
+}
+
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 8px;
+    left: -2.38rem;
+
+    width: 11px;
+    height: 11px;
+
+    border:
+        2px solid var(--accent);
+
+    border-radius: 50%;
+
+    background: var(--paper);
+}
+
+
+.timeline-item:first-child::before {
+    background: var(--accent);
+}
+
+
+.timeline-date {
+    margin-bottom: 0.3rem;
+
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.timeline-degree {
+    font-size: 1.18rem;
+    font-weight: 800;
+}
+
+
+.timeline-place {
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+.timeline-details {
+    max-width: 850px;
+
+    margin-top: 0.35rem;
+
+    color: var(--muted);
+
+    font-size: 0.84rem;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   RESEARCH
+========================================= */
+
+.research-axes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1.25rem;
+}
+
+
+.research-card {
+    position: relative;
+
+    padding: 1.75rem;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    transition: 0.3s;
+}
+
+
+.research-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--accent);
+
+    transform:
+        scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.35s;
+}
+
+
+.research-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 14px 40px
+        rgba(49, 87, 164, 0.10);
+}
+
+
+.research-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+
+.research-icon {
+    margin-bottom: 0.75rem;
+
+    color: var(--accent);
+
+    font-size: 1.55rem;
+}
+
+
+.research-title {
+    margin-bottom: 0.55rem;
+
+    font-size: 1.06rem;
+    font-weight: 800;
+}
+
+
+.research-description {
+    color: var(--muted);
+
+    font-size: 0.84rem;
+
+    line-height: 1.7;
+}
+
+
+.research-tags,
+.skills-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.4rem;
+}
+
+
+.research-tags {
+    margin-top: 0.8rem;
+}
+
+
+.research-tag,
+.skill {
+    padding:
+        0.22rem 0.55rem;
+
+    border-radius: 4px;
+
+    background: var(--soft);
+
+    color:
+        var(--accent-dark);
+
+    font-size: 0.65rem;
+}
+
+
+.skills-panel {
+    margin-top: 1.35rem;
+
+    padding: 1.5rem;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 10px;
+
+    background: var(--white);
+}
+
+
+.skills-title {
+    margin-bottom: 0.75rem;
+
+    color: var(--accent);
+
+    font-size: 0.74rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+}
+
+
+.skill {
+    background: var(--paper);
+
+    border:
+        1px solid var(--line);
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   PUBLICATIONS
+========================================= */
+
+.publication-filters {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.45rem;
+
+    margin-bottom: 2rem;
+}
+
+
+.filter-button {
+    padding:
+        0.48rem 1.05rem;
+
+    border:
+        1.5px solid var(--line);
+
+    border-radius: 4px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 0.76rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.filter-button.active,
+.filter-button:hover {
+    border-color: var(--accent);
+
+    background:
+        var(--accent-light);
+
+    color: var(--accent);
+}
+
+
+.publication-section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin:
+        2.3rem 0 1rem;
+
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+}
+
+
+.publication-section-title:first-of-type {
+    margin-top: 0;
+}
+
+
+.publication-section-title::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--line);
+}
+
+
+.publication-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.65rem;
+}
+
+
+.publication-item {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 0.8rem;
+
+    padding:
+        1rem 1.2rem;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 7px;
+
+    background: var(--white);
+
+    transition: 0.25s;
+}
+
+
+.publication-item:hover {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 5px 20px
+        rgba(49, 87, 164, 0.08);
+
+    transform:
+        translateX(3px);
+}
+
+
+.publication-item.hidden {
+    display: none;
+}
+
+
+.publication-number {
+    min-width: 20px;
+
+    color: var(--accent);
+
+    font-size: 1.05rem;
+
+    opacity: 0.5;
+}
+
+
+.publication-content {
+    flex: 1;
+
+    min-width: 0;
+
+    font-size: 0.86rem;
+
+    line-height: 1.58;
+}
+
+
+.publication-authors,
+.publication-venue {
+    color: var(--muted);
+}
+
+
+.publication-authors strong {
+    color: var(--ink);
+}
+
+
+.publication-title {
+    font-weight: 800;
+}
+
+
+.publication-venue {
+    font-style: italic;
+}
+
+
+.publication-link {
+    color: var(--accent);
+
+    text-decoration: none;
+
+    border-bottom:
+        1px dotted var(--accent);
+}
+
+
+.publication-badge {
+    align-self: center;
+
+    flex-shrink: 0;
+
+    padding:
+        0.22rem 0.56rem;
+
+    border-radius: 3px;
+
+    background: var(--soft);
+
+    color: var(--accent);
+
+    font-size: 0.62rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.publication-badge.new {
+    background: var(--gold-bg);
+
+    color: var(--gold);
+}
+
+
+/* =========================================
+   TEACHING
+========================================= */
+
+.teaching-summary {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+
+.teaching-experience {
+    display: grid;
+
+    grid-template-columns:
+        175px 1fr 110px;
+
+    align-items: center;
+
+    gap: 1.4rem;
+
+    padding:
+        1.35rem 1.45rem;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    transition: 0.25s;
+}
+
+
+.teaching-experience:hover {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 10px 28px
+        rgba(49, 87, 164, 0.08);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.teaching-period {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+}
+
+
+.teaching-institution {
+    margin-top: 0.2rem;
+
+    font-size: 0.95rem;
+    font-weight: 800;
+
+    line-height: 1.4;
+}
+
+
+.teaching-role {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.02rem;
+    font-weight: 800;
+}
+
+
+.teaching-modules {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.4rem;
+}
+
+
+.teaching-module {
+    padding:
+        0.24rem 0.56rem;
+
+    border-radius: 4px;
+
+    background: var(--soft);
+
+    color:
+        var(--accent-dark);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+
+.teaching-volume {
+    text-align: right;
+}
+
+
+.teaching-volume strong {
+    display: block;
+
+    color: var(--accent);
+
+    font-size: 1.75rem;
+
+    line-height: 1;
+}
+
+
+.teaching-volume span {
+    color: var(--muted);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+}
+
+
+.teaching-total {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-top: 1.2rem;
+
+    padding:
+        1rem 1.2rem;
+
+    border-radius: 8px;
+
+    background: var(--accent-dark);
+
+    color: var(--white);
+}
+
+
+.teaching-total-label {
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.teaching-total-number {
+    font-size: 1.65rem;
+    font-weight: 800;
+}
+
+
+.supervision-box {
+    margin-top: 1.5rem;
+
+    padding:
+        1.25rem 1.4rem;
+
+    border-left:
+        4px solid var(--accent);
+
+    border-radius:
+        0 8px 8px 0;
+
+    background: var(--white);
+
+    color: var(--muted);
+
+    font-size: 0.86rem;
+}
+
+
+.supervision-box strong {
+    color: var(--ink);
+}
+
+
+/* =========================================
+   ACTIVITIES
+========================================= */
+
+.activities-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+
+.activity-item {
+    display: grid;
+
+    grid-template-columns:
+        125px 1fr;
+
+    gap: 1.2rem;
+
+    padding-bottom: 1rem;
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+
+.activity-type {
+    color: var(--accent);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+}
+
+
+.activity-text {
+    color: var(--muted);
+
+    font-size: 0.89rem;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 2.5rem;
+}
+
+
+.contact-info h3 {
+    margin-bottom: 1rem;
+
+    font-size: 1.4rem;
+}
+
+
+.contact-link {
+    display: flex;
+
+    gap: 1rem;
+
+    padding:
+        0.9rem 0;
+
+    border-bottom:
+        1px solid var(--line);
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+
+.contact-link:hover {
+    color: var(--accent);
+
+    transform:
+        translateX(4px);
+}
+
+
+.contact-link-label {
+    min-width: 78px;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-link-text {
+    overflow-wrap: anywhere;
+
+    font-size: 0.9rem;
+}
+
+
+.contact-card {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 2.4rem;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 12px 35px
+        rgba(49, 87, 164, 0.07);
+
+    text-align: center;
+}
+
+
+.contact-card strong {
+    font-size: 1.18rem;
+}
+
+
+.contact-subtitle {
+    margin-top: 0.5rem;
+
+    color: var(--muted);
+}
+
+
+.contact-topics {
+    margin-top: 1.4rem;
+
+    color: var(--muted);
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.page-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        1.5rem 2.5rem;
+
+    border-top:
+        1px solid var(--line);
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .topbar-upper {
+        padding:
+            0 1.2rem;
+    }
+
+    .topbar-socials {
+        display: none;
+    }
+
+    .nav-tabs {
+        padding:
+            0 0.8rem;
+    }
+
+    .nav-tab {
+        padding:
+            0.65rem 0.95rem;
+
+        font-size: 0.72rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 2.4rem;
+    }
+
+    .hero-card {
+        width:
+            calc(100% - 16px);
+
+        max-width: 530px;
+
+        margin:
+            8px auto;
+    }
+
+    .page-inner {
+        padding:
+            2.2rem 1.2rem 4rem;
+    }
+
+    .research-axes {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-inner {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .teaching-experience {
+        grid-template-columns: 1fr;
+
+        gap: 0.8rem;
+    }
+
+    .teaching-volume {
+        text-align: left;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-item {
+        grid-template-columns: 1fr;
+
+        gap: 0.25rem;
+    }
+
+    .publication-item {
+        flex-wrap: wrap;
+    }
+
+    .page-footer {
+        flex-direction: column;
+
+        gap: 0.3rem;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .hero-page {
+        padding:
+            1.5rem 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .stats-strip {
+        padding:
+            2rem 1rem;
+    }
+
+    .stat-number {
+        font-size: 2.25rem;
+    }
+
+    .page-title {
+        font-size: 1.65rem;
+    }
+
+    .teaching-total {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- TOP NAVIGATION -->
 
-    <header class="topbar">
+<!-- =========================================
+     HEADER
+========================================= -->
 
-        <div class="topbar-upper">
+<header class="topbar">
+
+    <div class="topbar-upper">
+
+        <a
+            class="logo"
+            onclick="switchPage('home')"
+        >
+            Oussama <span>BEY</span>
+        </a>
+
+
+        <div class="topbar-socials">
 
             <a
-                class="logo"
-                onclick="switchPage('home')"
+                class="topbar-social"
+                href="https://github.com/oussamabey1"
+                target="_blank"
+                rel="noopener"
             >
-                Oussama <span>BEY</span>
+                GitHub
             </a>
 
-            <div class="topbar-socials">
 
-                <a
-                    href="https://github.com/oussamabey1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="topbar-social"
-                >
-                    GitHub
-                </a>
+            <a
+                class="topbar-social"
+                href="https://fr.linkedin.com/in/oussama-bey-"
+                target="_blank"
+                rel="noopener"
+            >
+                LinkedIn
+            </a>
 
-                <a
-                    href="https://www.linkedin.com/in/oussama-bey-"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="topbar-social"
-                >
-                    LinkedIn
-                </a>
 
-                <a
-                    href="mailto:oussama.bey@u-pec.fr"
-                    class="topbar-social"
-                >
-                    Email
-                </a>
+            <a
+                class="topbar-social"
+                href="https://l2s.centralesupelec.fr/u/bey-oussama/"
+                target="_blank"
+                rel="noopener"
+            >
+                L2S
+            </a>
+
+
+            <a
+                class="topbar-social"
+                href="https://cv.hal.science/oussama-bey"
+                target="_blank"
+                rel="noopener"
+            >
+                HAL
+            </a>
+
+
+            <a
+                class="topbar-social"
+                href="mailto:oussama.bey@l2s.centralesupelec.fr"
+            >
+                Email
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <nav class="nav-tabs">
+
+        <button
+            class="nav-tab active"
+            data-page="home"
+        >
+            Home
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="education"
+        >
+            Education
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="research"
+        >
+            Research
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="publications"
+        >
+            Publications
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="teaching"
+        >
+            Teaching
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="activities"
+        >
+            Activities
+        </button>
+
+
+        <button
+            class="nav-tab"
+            data-page="contact"
+        >
+            Contact
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<main class="pages-wrapper">
+
+
+<!-- =========================================
+     HOME
+========================================= -->
+
+<section
+    class="page active"
+    id="page-home"
+>
+
+    <div class="hero-page">
+
+        <div class="hero-grid">
+
+            <div class="hero-text">
+
+                <div class="hero-tag">
+                    ATER · Université Paris-Saclay · L2S / SYCOMORE
+                </div>
+
+
+                <h1>
+                    Oussama <strong>BEY</strong>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Researcher in automatic control and robotics,
+                    currently ATER at Université Paris-Saclay
+                    and member of the Laboratoire des Signaux
+                    et Systèmes (L2S), SYCOMORE team.
+
+                    My research focuses on nonlinear and adaptive
+                    control, learning-based control, constrained
+                    systems, robotics and intelligent assistive
+                    systems.
+
+                </p>
+
+
+                <div class="hero-socials">
+
+                    <a
+                        class="hero-social"
+                        href="https://l2s.centralesupelec.fr/u/bey-oussama/"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        L2S Profile
+                    </a>
+
+
+                    <a
+                        class="hero-social"
+                        href="https://cv.hal.science/oussama-bey"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        HAL CV
+                    </a>
+
+
+                    <a
+                        class="hero-social"
+                        href="https://fr.linkedin.com/in/oussama-bey-"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        LinkedIn
+                    </a>
+
+
+                    <a
+                        class="hero-social"
+                        href="mailto:oussama.bey@l2s.centralesupelec.fr"
+                    >
+                        Email
+                    </a>
+
+                </div>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="button button-primary"
+                        onclick="switchPage('publications')"
+                    >
+                        Publications
+                    </button>
+
+
+                    <button
+                        class="button button-outline"
+                        onclick="switchPage('research')"
+                    >
+                        Research
+                    </button>
+
+
+                    <button
+                        class="button button-outline"
+                        onclick="switchPage('contact')"
+                    >
+                        Contact
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-card">
+
+                <div class="photo-wrapper">
+
+                    <img
+                        class="hero-photo"
+                        src="oussama.jpg"
+                        alt="Oussama BEY"
+                        onerror="
+                            this.style.display='none';
+                            document
+                            .getElementById('photoFallback')
+                            .style.display='flex';
+                        "
+                    >
+
+
+                    <div
+                        class="photo-fallback"
+                        id="photoFallback"
+                    >
+                        OB
+                    </div>
+
+                </div>
+
+
+                <div class="card-institution">
+                    Université Paris-Saclay
+                </div>
+
+
+                <div class="card-position">
+                    ATER · IUT de Cachan
+                </div>
+
+
+                <div class="card-field">
+
+                    Laboratoire des Signaux et Systèmes (L2S)
+
+                    <br>
+
+                    SYCOMORE — Automatic Control and Systems
+
+                </div>
+
+
+                <div class="card-details">
+
+                    <div class="card-detail">
+
+                        <span class="card-detail-label">
+                            Status
+                        </span>
+
+                        <span>
+                            ATER / Université Paris-Saclay
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-detail">
+
+                        <span class="card-detail-label">
+                            Team
+                        </span>
+
+                        <span>
+                            L2S — SYCOMORE
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-detail">
+
+                        <span class="card-detail-label">
+                            Focus
+                        </span>
+
+                        <span>
+                            Nonlinear, adaptive and learning-based control
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-        <nav
-            class="nav-tabs"
-            aria-label="Main navigation"
-        >
-            <button class="nav-tab active" data-page="home">
-                Home
-            </button>
+    </div>
 
-            <button class="nav-tab" data-page="education">
-                Education
-            </button>
 
-            <button class="nav-tab" data-page="research">
-                Research
-            </button>
 
-            <button class="nav-tab" data-page="publications">
-                Publications
-            </button>
+    <div class="stats-strip">
 
-            <button class="nav-tab" data-page="teaching">
-                Teaching
-            </button>
+        <div class="stats-inner">
 
-            <button class="nav-tab" data-page="activities">
-                Activities
-            </button>
 
-            <button class="nav-tab" data-page="contact">
-                Contact
-            </button>
-        </nav>
-
-    </header>
-
-    <main class="pages-wrapper">
-
-        <!-- HOME -->
-
-        <section class="page active" id="page-home">
-
-            <div class="hero-page">
-
-                <div class="hero-grid">
-
-                    <div class="hero-text">
-
-                        <div class="hero-tag">
-                            Researcher &amp; ATER · Université Paris-Est Créteil
-                        </div>
-
-                        <h1>
-                            Oussama <strong>BEY</strong>
-                        </h1>
-
-                        <p class="hero-description">
-                            Ph.D. in Automatic Control and Robotics with more than
-                            four years of experience in real-time intelligent
-                            control, nonlinear adaptive control, assistive
-                            robotics, fault-tolerant control, and machine-learning
-                            methods for human movement analysis.
-                        </p>
-
-                        <div class="hero-socials">
-
-                            <a
-                                href="https://github.com/oussamabey1"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="hero-social"
-                            >
-                                GitHub
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/in/oussama-bey"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="hero-social"
-                            >
-                                LinkedIn
-                            </a>
-
-                            <a
-                                href="mailto:oussama.bey@u-pec.fr"
-                                class="hero-social"
-                            >
-                                Email
-                            </a>
-
-                        </div>
-
-                        <div class="hero-buttons">
-
-                            <button
-                                class="button button-primary"
-                                onclick="switchPage('publications')"
-                            >
-                                Publications
-                            </button>
-
-                            <button
-                                class="button button-outline"
-                                onclick="switchPage('contact')"
-                            >
-                                Contact
-                            </button>
-
-                           
-
-                        </div>
-
-                    </div>
-
-                    <div class="hero-card">
-
-                        <div class="photo-wrapper">
-
-                            <img
-                                class="hero-photo"
-                                src="oussama.jpg"
-                                alt="Oussama BEY"
-                                onerror="
-                                    this.style.display='none';
-                                    document.getElementById('photoFallback')
-                                    .style.display='flex';
-                                "
-                            >
-
-                            <div
-                                class="photo-fallback"
-                                id="photoFallback"
-                            >
-                                OB
-                            </div>
-
-                        </div>
-
-                        <div class="card-institution">
-                            Université Paris-Est Créteil
-                        </div>
-
-                        <div class="card-position">
-                            Researcher &amp; ATER
-                        </div>
-
-                        <div class="card-field">
-                            Automatic Control, Robotics, Intelligent Systems
-                            and Assistive Technologies
-                        </div>
-
-                        <div class="card-details">
-
-                            <div class="card-detail">
-                                <span class="card-detail-label">
-                                    Degree
-                                </span>
-
-                                <span>
-                                    Ph.D. in Automatic Control and Robotics
-                                </span>
-                            </div>
-
-                            <div class="card-detail">
-                                <span class="card-detail-label">
-                                    Focus
-                                </span>
-
-                                <span>
-                                    Real-time control of human–robot and
-                                    exoskeleton systems
-                                </span>
-                            </div>
-
-                            <div class="card-detail">
-                                <span class="card-detail-label">
-                                    Location
-                                </span>
-
-                                <span>
-                                    Île-de-France, France
-                                </span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="stats-strip">
-
-                <div class="stats-inner">
-
-                    <div>
-                        <div class="stat-number" data-target="8">
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Journal Articles
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stat-number" data-target="3">
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            International Conferences
-                        </div>
-                    </div>
-
-                    <div>
-                        <div
-                            class="stat-number"
-                            data-target="128"
-                            data-suffix="+"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Documented Teaching Hours
-                        </div>
-                    </div>
-
-                    <div>
-                        <div
-                            class="stat-number"
-                            data-target="4"
-                            data-suffix="+"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Years of Research
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- EDUCATION -->
-
-        <section class="page" id="page-education">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">01</span>
-
-                    <h2 class="page-title">
-                        Education &amp; Academic Appointments
-                    </h2>
-
-                    <div class="page-line"></div>
-                </div>
-
-                <div class="timeline">
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-date">
-                            January 2026 — Present
-                        </div>
-
-                        <div class="timeline-degree">
-                            Researcher in Automatic Control and Robotics
-                        </div>
-
-                        <div class="timeline-place">
-                            Université Paris-Est Créteil, France
-                        </div>
-
-                        <div class="timeline-details">
-                            Physics-based control of lower-limb exoskeletons,
-                            event-triggered fault-tolerant control,
-                            machine-learning-based activity recognition,
-                            and task-oriented assistive control.
-                        </div>
-
-                    </div>
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-date">
-                            Academic Year 2025–2026
-                        </div>
-
-                        <div class="timeline-degree">
-                            ATER — Teaching and Research Fellow
-                        </div>
-
-                        <div class="timeline-place">
-                            Université Paris-Est Créteil, France
-                        </div>
-
-                        <div class="timeline-details">
-                            Tutorials and laboratory classes in computer
-                            science, electronics, and industrial automation
-                            for Bachelor of Technology students in Electrical
-                            Engineering and Industrial Computing.
-                        </div>
-
-                    </div>
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-date">
-                            October 2022 — January 2026
-                        </div>
-
-                        <div class="timeline-degree">
-                            Ph.D. in Automatic Control and Robotics
-                        </div>
-
-                        <div class="timeline-place">
-                            Université Paris-Est Créteil, France
-                        </div>
-
-                        <div class="timeline-details">
-                            Thesis: Assistive, robust, and adaptive control
-                            approaches for an actuated ankle-foot orthosis.
-                        </div>
-
-                    </div>
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-date">
-                            September 2016 — July 2021
-                        </div>
-
-                        <div class="timeline-degree">
-                            Engineering Degree and Master II in Automatic Control
-                        </div>
-
-                        <div class="timeline-place">
-                            École Polytechnique de Constantine, Algeria
-                        </div>
-
-                        <div class="timeline-details">
-                            Top-ranked graduate. Master project on real-time
-                            trajectory control of a two-degree-of-freedom
-                            Quanser helicopter; engineering project on
-                            electric power-system stability.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- RESEARCH -->
-
-        <section class="page" id="page-research">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">02</span>
-
-                    <h2 class="page-title">
-                        Research Topics
-                    </h2>
-
-                    <div class="page-line"></div>
-                </div>
-
-                <div class="research-axes">
-
-                    <article class="research-card">
-
-                        <div class="research-icon">
-                            ⚙
-                        </div>
-
-                        <div class="research-title">
-                            Nonlinear, Adaptive &amp; Robust Control
-                        </div>
-
-                        <div class="research-description">
-                            Design and stability analysis of adaptive,
-                            output-feedback, finite-time, event-triggered,
-                            and fault-tolerant controllers for uncertain
-                            affine and non-affine systems.
-                        </div>
-
-                        <div class="research-tags">
-                            <span class="research-tag">
-                                Adaptive Control
-                            </span>
-
-                            <span class="research-tag">
-                                Output Feedback
-                            </span>
-
-                            <span class="research-tag">
-                                Finite-Time
-                            </span>
-
-                            <span class="research-tag">
-                                Fault Tolerance
-                            </span>
-
-                            <span class="research-tag">
-                                Input Saturation
-                            </span>
-                        </div>
-
-                    </article>
-
-                    <article class="research-card">
-
-                        <div class="research-icon">
-                            ◇
-                        </div>
-
-                        <div class="research-title">
-                            Artificial Intelligence for Control
-                        </div>
-
-                        <div class="research-description">
-                            Integration of neural networks, fuzzy systems,
-                            echo-state networks, LSTM architectures,
-                            Transformers, and reinforcement learning into
-                            real-time control and gait-mode recognition.
-                        </div>
-
-                        <div class="research-tags">
-                            <span class="research-tag">
-                                Neural Networks
-                            </span>
-
-                            <span class="research-tag">
-                                Fuzzy Systems
-                            </span>
-
-                            <span class="research-tag">
-                                LSTM
-                            </span>
-
-                            <span class="research-tag">
-                                Transformers
-                            </span>
-
-                            <span class="research-tag">
-                                Reinforcement Learning
-                            </span>
-                        </div>
-
-                    </article>
-
-                    <article class="research-card">
-
-                        <div class="research-icon">
-                            ★
-                        </div>
-
-                        <div class="research-title">
-                            Assistive Robotics &amp; Human Movement
-                        </div>
-
-                        <div class="research-description">
-                            Real-time control of actuated ankle-foot orthoses
-                            and human–exoskeleton systems, gait analysis,
-                            wearable sensing, activity recognition, and
-                            lower-limb assistance.
-                        </div>
-
-                        <div class="research-tags">
-                            <span class="research-tag">
-                                Exoskeletons
-                            </span>
-
-                            <span class="research-tag">
-                                Ankle-Foot Orthosis
-                            </span>
-
-                            <span class="research-tag">
-                                Gait Analysis
-                            </span>
-
-                            <span class="research-tag">
-                                Wearable Sensors
-                            </span>
-
-                            <span class="research-tag">
-                                Human–Robot Interaction
-                            </span>
-                        </div>
-
-                    </article>
-
-                </div>
-
-                <div class="skills-panel">
-
-                    <div class="skills-title">
-                        Programming, Simulation and Engineering Tools
-                    </div>
-
-                    <div class="skills-list">
-                        <span class="skill">MATLAB / Simulink</span>
-                        <span class="skill">LabVIEW</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">C / C++</span>
-                        <span class="skill">ROS</span>
-                        <span class="skill">TensorFlow</span>
-                        <span class="skill">SolidWorks</span>
-                        <span class="skill">TIA Portal</span>
-                        <span class="skill">LaTeX</span>
-                        <span class="skill">Signal Processing</span>
-                        <span class="skill">Data Analysis</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- PUBLICATIONS -->
-
-        <section class="page" id="page-publications">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">03</span>
-
-                    <h2 class="page-title">
-                        Publications
-                    </h2>
-
-                    <div class="page-line"></div>
-                </div>
-
-                <div class="publication-filters">
-
-                    <button
-                        class="filter-button active"
-                        data-filter="all"
-                    >
-                        All
-                    </button>
-
-                    <button
-                        class="filter-button"
-                        data-filter="journal"
-                    >
-                        Journals
-                    </button>
-
-                    <button
-                        class="filter-button"
-                        data-filter="conference"
-                    >
-                        Conferences
-                    </button>
-
-                    <button
-                        class="filter-button"
-                        data-filter="accepted"
-                    >
-                        Accepted
-                    </button>
-
-                </div>
-
-                <div id="publicationContainer">
-
-                    <!-- JOURNALS -->
-
-                    <div
-                        class="publication-section-title"
-                        data-section="journal"
-                    >
-                        International Journals
-                    </div>
-
-                    <div
-                        class="publication-list"
-                        data-section="journal"
-                    >
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                1
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>,
-                                    H. Rifai, A. Chemori, Y. Amirat,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Finite-Time Adaptive Feedforward
-                                    Fractional-Order RISEα Control of an
-                                    Actuated Ankle-Foot Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IEEE Transactions on Automation Science
-                                    and Engineering, vol. 23,
-                                    pp. 6161–6174, 2026.
-
-                                    <a
-                                        class="publication-link"
-                                        href="https://doi.org/10.1109/TASE.2026.3668272"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        DOI
-                                    </a>
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                IEEE T-ASE
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                2
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>
-                                    and M. Chemachema.
-                                </span>
-
-                                <span class="publication-title">
-                                    Finite-Time Event-Triggered Output-Feedback
-                                    Adaptive Decentralized Echo-State Network
-                                    Fault-Tolerant Control for Interconnected
-                                    Pure-Feedback Nonlinear Systems with Input
-                                    Saturation and External Disturbances:
-                                    A Fuzzy Control-Error Approach.
-                                </span>
-
-                                <span class="publication-venue">
-                                    Information Sciences, vol. 669,
-                                    art. 120557, 2024.
-
-                                    <a
-                                        class="publication-link"
-                                        href="https://doi.org/10.1016/j.ins.2024.120557"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        DOI
-                                    </a>
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                Information Sciences
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                3
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>
-                                    and M. Chemachema.
-                                </span>
-
-                                <span class="publication-title">
-                                    Decentralized Event-Triggered
-                                    Output-Feedback Adaptive Neural Network
-                                    Control for a Class of MIMO Uncertain
-                                    Strict-Feedback Nonlinear Systems with
-                                    Input Saturation.
-                                </span>
-
-                                <span class="publication-venue">
-                                    International Journal of Adaptive Control
-                                    and Signal Processing, vol. 38, no. 4,
-                                    pp. 1420–1441, 2024.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                IJACSP
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                4
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>,
-                                    Y. Amirat, and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Adaptive Model-Free Control for
-                                    Ankle-Assistive Orthosis: A Robust
-                                    Approach to Real-Time Gait Tracking.
-                                </span>
-
-                                <span class="publication-venue">
-                                    Mechatronics, vol. 109,
-                                    art. 103341, 2025.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                Mechatronics
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                5
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>
-                                    and M. Chemachema.
-                                </span>
-
-                                <span class="publication-title">
-                                    Control-Error-Based Output-Feedback
-                                    Adaptive Decentralized Neural Network
-                                    Controller for Interconnected Uncertain
-                                    Strict-Feedback Nonlinear Systems with
-                                    Input Saturation.
-                                </span>
-
-                                <span class="publication-venue">
-                                    Transactions of the Institute of
-                                    Measurement and Control, vol. 46,
-                                    no. 8, pp. 1529–1541, 2024.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                TIMC
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                6
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    H. Moon, <strong>O. Bey</strong>,
-                                    A. Boubezoul, L. Oukhellou,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Real-Time LSTM-Driven Dynamic Gait
-                                    Mode Detection for Enhanced Control of
-                                    Actuated Ankle-Foot Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IEEE Transactions on Robotics,
-                                    vol. 41, pp. 4794–4809, 2025.
-
-                                    <a
-                                        class="publication-link"
-                                        href="https://doi.org/10.1109/TRO.2025.3593111"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        DOI
-                                    </a>
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                IEEE T-RO
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="journal"
-                        >
-                            <span class="publication-number">
-                                7
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    R. Jradi, <strong>O. Bey</strong>,
-                                    H. Rifaï, Y. Amirat,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Adaptive Control Strategy for Ankle
-                                    Assistance Using an Actuated Ankle-Foot
-                                    Orthosis with Selective Adaptive
-                                    Parameter Convergence.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IEEE Robotics and Automation Letters,
-                                    vol. 11, no. 2, pp. 1258–1265, 2026.
-
-                                    <a
-                                        class="publication-link"
-                                        href="https://doi.org/10.1109/LRA.2025.3641107"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        DOI
-                                    </a>
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                IEEE RA-L
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <!-- CONFERENCES -->
-
-                    <div
-                        class="publication-section-title"
-                        data-section="conference"
-                    >
-                        International Conferences
-                    </div>
-
-                    <div
-                        class="publication-list"
-                        data-section="conference"
-                    >
-
-                        <div
-                            class="publication-item"
-                            data-type="conference"
-                        >
-                            <span class="publication-number">
-                                1
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    M. Ferhat, <strong>O. Bey</strong>,
-                                    K. Pasini, L. Oukhellou,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Real-Time Comparative Study of
-                                    AI-Driven Locomotion Detection for the
-                                    Control of an Actuated Ankle-Foot Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IFAC-PapersOnLine, vol. 59, no. 18,
-                                    pp. 103–108, 2025.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                IFAC
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="conference"
-                        >
-                            <span class="publication-number">
-                                2
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>,
-                                    R. Jradi, H. Moon, H. Rifai,
-                                    K. D. Sharma, Y. Amirat,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    A Novel Funnel-Based L1 Adaptive Fuzzy
-                                    Approach for the Control of an Actuated
-                                    Ankle-Foot Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IEEE International Conference on
-                                    Robotics and Automation,
-                                    Yokohama, Japan, 2024.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                ICRA
-                            </span>
-                        </div>
-
-                        <div
-                            class="publication-item"
-                            data-type="conference"
-                        >
-                            <span class="publication-number">
-                                3
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>,
-                                    M. Chemachema, Y. Amirat,
-                                    G. Fried, and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Direct Adaptive Fuzzy-Based Neural
-                                    Network Controller for a Human-Driven
-                                    Knee Joint Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    American Control Conference,
-                                    San Diego, USA, 2023.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge">
-                                ACC
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <!-- ACCEPTED -->
-
-                    <div
-                        class="publication-section-title"
-                        data-section="accepted"
-                    >
-                        Accepted / Forthcoming
-                    </div>
-
-                    <div
-                        class="publication-list"
-                        data-section="accepted"
-                    >
-
-                        <div
-                            class="publication-item"
-                            data-type="accepted"
-                        >
-                            <span class="publication-number">
-                                1
-                            </span>
-
-                            <span class="publication-content">
-
-                                <span class="publication-authors">
-                                    <strong>O. Bey</strong>,
-                                    M. Chemachema, R. Jradi,
-                                    H. Moon, H. Rifai, Y. Amirat,
-                                    and S. Mohammed.
-                                </span>
-
-                                <span class="publication-title">
-                                    Non-Model-Based Finite-Time Adaptive
-                                    Neural Output-Feedback Control for an
-                                    Active Ankle-Foot Orthosis.
-                                </span>
-
-                                <span class="publication-venue">
-                                    IEEE Transactions on Automation Science
-                                    and Engineering, accepted, 2026.
-                                </span>
-
-                            </span>
-
-                            <span class="publication-badge accepted">
-                                Accepted
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- TEACHING -->
-
-        <section class="page" id="page-teaching">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">04</span>
-
-                    <h2 class="page-title">
-                        Teaching &amp; Supervision
-                    </h2>
-
-                    <div class="page-line"></div>
-                </div>
-
-                <div class="teaching-card">
-
-                    <div class="teaching-grid">
-
-                        <div class="teaching-item">
-
-                            <div class="teaching-level">
-                                ATER · UPEC · 2025–2026
-                            </div>
-
-                            <div class="teaching-name">
-                                Computer Science, Electronics and
-                                Industrial Automation
-                            </div>
-
-                            <div class="teaching-description">
-                                Tutorials and laboratory classes for
-                                Bachelor of Technology students in
-                                Electrical Engineering and Industrial
-                                Computing.
-                            </div>
-
-                            <div class="teaching-hours">
-                                Tutorials + Laboratories
-                            </div>
-
-                        </div>
-
-                        <div class="teaching-item">
-
-                            <div class="teaching-level">
-                                EPISEN · 2024–2025
-                            </div>
-
-                            <div class="teaching-name">
-                                Signal Processing
-                            </div>
-
-                            <div class="teaching-description">
-                                Lectures, tutorials, and practical
-                                laboratory work covering signal properties,
-                                Fourier analysis, and analog and digital
-                                filtering.
-                            </div>
-
-                            <div class="teaching-hours">
-                                64 hours
-                            </div>
-
-                        </div>
-
-                        <div class="teaching-item">
-
-                            <div class="teaching-level">
-                                EPISEN · 2023–2024
-                            </div>
-
-                            <div class="teaching-name">
-                                Signal Processing
-                            </div>
-
-                            <div class="teaching-description">
-                                Lectures, tutorials, and laboratories on
-                                signal representation, Fourier transforms,
-                                analog filters, and digital filters.
-                            </div>
-
-                            <div class="teaching-hours">
-                                64 hours
-                            </div>
-
-                        </div>
-
-                        <div class="teaching-item">
-
-                            <div class="teaching-level">
-                                Master 2 IA2S · UPEC · 2022–2026
-                            </div>
-
-                            <div class="teaching-name">
-                                Research Project Supervision
-                            </div>
-
-                            <div class="teaching-description">
-                                Supervision of projects on CNN-LSTM and
-                                Bi-LSTM gait-mode detection,
-                                reinforcement-learning control of ankle
-                                orthoses, and biomechanical gait analysis
-                                using EMG, IMU, and FSR sensors.
-                            </div>
-
-                            <div class="teaching-hours">
-                                Project Supervision
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+            <div>
 
                 <div
-                    style="
-                        margin-top: 1.2rem;
-                        color: var(--muted);
-                        font-size: 0.73rem;
-                        font-weight: 700;
-                        letter-spacing: 0.06em;
-                        text-transform: uppercase;
-                    "
+                    class="stat-number"
+                    data-target="9"
                 >
-                    Documented teaching volume: 128+ hours,
-                    in addition to ATER teaching duties
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Journal Articles
                 </div>
 
             </div>
 
-        </section>
 
-        <!-- ACTIVITIES -->
+            <div>
 
-        <section class="page" id="page-activities">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">05</span>
-
-                    <h2 class="page-title">
-                        Scientific Activities
-                    </h2>
-
-                    <div class="page-line"></div>
+                <div
+                    class="stat-number"
+                    data-target="3"
+                >
+                    0
                 </div>
 
-                <div class="activities-list">
-
-                    <div class="activity-item">
-
-                        <div class="activity-type">
-                            Reviewing
-                        </div>
-
-                        <div class="activity-text">
-                            Reviewer for international robotics and
-                            control journals, including IEEE Transactions
-                            on Robotics and IEEE Robotics and Automation
-                            Letters.
-                        </div>
-
-                    </div>
-
-                    <div class="activity-item">
-
-                        <div class="activity-type">
-                            Conference
-                        </div>
-
-                        <div class="activity-text">
-                            Member of the local organizing activities
-                            for the IFAC Joint Symposium on Robotics and
-                            Mechatronics, Sorbonne Université, July 2025.
-                        </div>
-
-                    </div>
-
-                    <div class="activity-item">
-
-                        <div class="activity-type">
-                            Mentoring
-                        </div>
-
-                        <div class="activity-text">
-                            Supervised a high-school student and a
-                            middle-school student in the
-                            Apprentis-Chercheurs programme on gait-cycle
-                            analysis across different terrains,
-                            January–July 2024.
-                        </div>
-
-                    </div>
-
-                    <div class="activity-item">
-
-                        <div class="activity-type">
-                            Research Projects
-                        </div>
-
-                        <div class="activity-text">
-                            Supervision of Master 2 projects in
-                            machine-learning-based gait-mode detection,
-                            reinforcement-learning control, and
-                            wearable-sensor-based biomechanical analysis.
-                        </div>
-
-                    </div>
-
-                    <div class="activity-item">
-
-                        <div class="activity-type">
-                            Real-Time Systems
-                        </div>
-
-                        <div class="activity-text">
-                            Development and experimental validation of
-                            real-time control and machine-learning
-                            algorithms for actuated ankle-foot orthoses
-                            and human–robot systems.
-                        </div>
-
-                    </div>
-
+                <div class="stat-label">
+                    International Conferences
                 </div>
 
             </div>
 
-        </section>
 
-        <!-- CONTACT -->
+            <div>
 
-        <section class="page" id="page-contact">
-
-            <div class="page-inner">
-
-                <div class="page-title-row">
-                    <span class="page-num">06</span>
-
-                    <h2 class="page-title">
-                        Contact
-                    </h2>
-
-                    <div class="page-line"></div>
+                <div
+                    class="stat-number"
+                    data-target="508"
+                    data-suffix="+"
+                >
+                    0
                 </div>
 
-                <div class="contact-grid">
+                <div class="stat-label">
+                    Teaching Hours
+                </div>
 
-                    <div class="contact-info">
+            </div>
 
-                        <h3>
-                            Get in touch
-                        </h3>
 
-                        <a
-                            class="contact-link"
-                            href="mailto:oussama.bey@u-pec.fr"
-                        >
-                            <span class="contact-link-label">
-                                Email
-                            </span>
+            <div>
 
-                            <span class="contact-link-text">
-                                oussama.bey@u-pec.fr
-                            </span>
-                        </a>
+                <div
+                    class="stat-number"
+                    data-target="4"
+                    data-suffix="+"
+                >
+                    0
+                </div>
 
-                        <a
-                            class="contact-link"
-                            href="https://github.com/oussamabey1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span class="contact-link-label">
-                                GitHub
-                            </span>
+                <div class="stat-label">
+                    Years of Research
+                </div>
 
-                            <span class="contact-link-text">
-                                github.com/oussamabey1
-                            </span>
-                        </a>
+            </div>
 
-                        <a
-                            class="contact-link"
-                            href="https://www.linkedin.com/in/oussama-bey"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span class="contact-link-label">
-                                LinkedIn
-                            </span>
+        </div>
 
-                            <span class="contact-link-text">
-                                linkedin.com/in/oussama-bey
-                            </span>
-                        </a>
+    </div>
 
-                        
+</section>
 
-                    </div>
 
-                    <div class="contact-card">
 
-                        <strong>
-                            Université Paris-Est Créteil
-                        </strong>
+<!-- =========================================
+     EDUCATION
+========================================= -->
 
-                        <div class="contact-subtitle">
-                            Automatic Control and Robotics
-                            <br>
-                            Île-de-France, France
-                        </div>
+<section
+    class="page"
+    id="page-education"
+>
 
-                        <div class="languages">
-                            Languages: English — bilingual ·
-                            German — basic
-                        </div>
+    <div class="page-inner">
 
-                    </div>
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                01
+            </span>
+
+
+            <h2 class="page-title">
+                Education &amp; Academic Appointments
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2026 — Present
+                </div>
+
+
+                <div class="timeline-degree">
+                    ATER — Université Paris-Saclay
+                </div>
+
+
+                <div class="timeline-place">
+
+                    IUT de Cachan ·
+                    Laboratoire des Signaux et Systèmes (L2S) ·
+                    SYCOMORE
+
+                </div>
+
+
+                <div class="timeline-details">
+
+                    Teaching in software engineering,
+                    electronics, industrial computer networks
+                    and automatic control.
+
+                    Research activities within the
+                    L2S SYCOMORE team.
 
                 </div>
 
             </div>
 
-        </section>
 
-    </main>
 
-    <footer class="page-footer">
+            <div class="timeline-item">
 
-        <p>
-            &copy; 2026 Oussama BEY — Academic Portfolio
-        </p>
+                <div class="timeline-date">
+                    2025 — 2026
+                </div>
 
-        <p>
-            UPEC · Automatic Control · Robotics
-        </p>
 
-    </footer>
+                <div class="timeline-degree">
+                    ATER — Université Paris-Est Créteil
+                </div>
 
-    <script>
-        function switchPage(pageName) {
-            document
-                .querySelectorAll(".page")
-                .forEach(function (page) {
-                    page.classList.remove("active");
+
+                <div class="timeline-place">
+                    UPEC, France
+                </div>
+
+
+                <div class="timeline-details">
+
+                    172 teaching hours in computer science,
+                    automatic control and SAE project-based
+                    activities.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    October 2022 — January 2026
+                </div>
+
+
+                <div class="timeline-degree">
+                    Ph.D. in Automatic Control and Robotics
+                </div>
+
+
+                <div class="timeline-place">
+                    Université Paris-Est Créteil, France
+                </div>
+
+
+                <div class="timeline-details">
+
+                    Thesis:
+                    Assistive, robust and adaptive control
+                    approaches for an actuated ankle-foot orthosis.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    September 2016 — July 2021
+                </div>
+
+
+                <div class="timeline-degree">
+
+                    Engineering Degree &amp;
+                    Master II in Automatic Control
+
+                </div>
+
+
+                <div class="timeline-place">
+
+                    École Polytechnique de Constantine,
+                    Algeria
+
+                </div>
+
+
+                <div class="timeline-details">
+
+                    Top-ranked graduate.
+
+                    Research projects on nonlinear trajectory
+                    control and electric power-system stability.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     RESEARCH
+========================================= -->
+
+<section
+    class="page"
+    id="page-research"
+>
+
+    <div class="page-inner">
+
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                02
+            </span>
+
+
+            <h2 class="page-title">
+                Research Topics
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="research-axes">
+
+
+            <article class="research-card">
+
+                <div class="research-icon">
+                    ⚙
+                </div>
+
+
+                <div class="research-title">
+                    Nonlinear, Adaptive &amp; Robust Control
+                </div>
+
+
+                <div class="research-description">
+
+                    Adaptive, output-feedback, finite-time,
+                    event-triggered and fault-tolerant control
+                    of uncertain nonlinear systems, including
+                    constrained and interconnected systems.
+
+                </div>
+
+
+                <div class="research-tags">
+
+                    <span class="research-tag">
+                        Adaptive Control
+                    </span>
+
+                    <span class="research-tag">
+                        Output Feedback
+                    </span>
+
+                    <span class="research-tag">
+                        Finite-Time
+                    </span>
+
+                    <span class="research-tag">
+                        Fault Tolerance
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="research-card">
+
+                <div class="research-icon">
+                    ◇
+                </div>
+
+
+                <div class="research-title">
+                    Learning-Based Control
+                </div>
+
+
+                <div class="research-description">
+
+                    Neural networks, fuzzy systems,
+                    echo-state networks, LSTM architectures,
+                    Transformers and reinforcement learning
+                    for control, estimation and activity recognition.
+
+                </div>
+
+
+                <div class="research-tags">
+
+                    <span class="research-tag">
+                        Neural Networks
+                    </span>
+
+                    <span class="research-tag">
+                        Fuzzy Systems
+                    </span>
+
+                    <span class="research-tag">
+                        LSTM
+                    </span>
+
+                    <span class="research-tag">
+                        Transformers
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="research-card">
+
+                <div class="research-icon">
+                    ★
+                </div>
+
+
+                <div class="research-title">
+                    Robotics &amp; Assistive Systems
+                </div>
+
+
+                <div class="research-description">
+
+                    Real-time control of active orthoses
+                    and human–robot systems, gait analysis,
+                    wearable sensing, activity recognition
+                    and intelligent assistance.
+
+                </div>
+
+
+                <div class="research-tags">
+
+                    <span class="research-tag">
+                        Robotics
+                    </span>
+
+                    <span class="research-tag">
+                        Exoskeletons
+                    </span>
+
+                    <span class="research-tag">
+                        Gait Analysis
+                    </span>
+
+                    <span class="research-tag">
+                        Wearable Sensors
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="skills-panel">
+
+            <div class="skills-title">
+
+                Programming, Simulation
+                and Engineering Tools
+
+            </div>
+
+
+            <div class="skills-list">
+
+                <span class="skill">
+                    MATLAB / Simulink
+                </span>
+
+                <span class="skill">
+                    LabVIEW
+                </span>
+
+                <span class="skill">
+                    Python
+                </span>
+
+                <span class="skill">
+                    C / C++
+                </span>
+
+                <span class="skill">
+                    ROS
+                </span>
+
+                <span class="skill">
+                    TensorFlow
+                </span>
+
+                <span class="skill">
+                    SolidWorks
+                </span>
+
+                <span class="skill">
+                    TIA Portal
+                </span>
+
+                <span class="skill">
+                    LaTeX
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PUBLICATIONS
+========================================= -->
+
+<section
+    class="page"
+    id="page-publications"
+>
+
+    <div class="page-inner">
+
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                03
+            </span>
+
+
+            <h2 class="page-title">
+                Publications
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="publication-filters">
+
+
+            <button
+                class="filter-button active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+
+            <button
+                class="filter-button"
+                data-filter="journal"
+            >
+                Journals
+            </button>
+
+
+            <button
+                class="filter-button"
+                data-filter="conference"
+            >
+                Conferences
+            </button>
+
+
+            <button
+                class="filter-button"
+                data-filter="early"
+            >
+                New / Early Access
+            </button>
+
+
+        </div>
+
+
+
+        <div id="publicationContainer">
+
+
+            <div
+                class="publication-section-title"
+                data-section="journal"
+            >
+                Journal Articles
+            </div>
+
+
+
+            <div
+                class="publication-list"
+                data-section="journal"
+            >
+
+
+                <!-- PAPER 1 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal early"
+                >
+
+                    <span class="publication-number">
+                        1
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            M. Chemachema,
+                            T. Ahmed-Ali,
+                            and E. Magarotto.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Adaptive Neural Network Control
+                            of Fractional-Order Nonlinear Systems
+                            via Integer-Order Learning:
+                            A Memory-Efficient Approach.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IEEE Control Systems Letters,
+                            2026, pp. 1–1.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/LCSYS.2026.3743224"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge new">
+                        New · 2026
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 2 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        2
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            M. Chemachema,
+                            R. Jradi,
+                            H. Moon,
+                            H. Rifai,
+                            Y. Amirat,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Non-Model-Based Finite-Time Adaptive
+                            Neural Output Feedback Control for
+                            an Active Ankle-Foot Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IEEE Transactions on Automation
+                            Science and Engineering,
+                            vol. 23,
+                            pp. 14103–14119,
+                            2026.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/TASE.2026.3718534"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IEEE T-ASE
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 3 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        3
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            H. Rifai,
+                            A. Chemori,
+                            Y. Amirat,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Finite-Time Adaptive Feedforward
+                            Fractional-Order RISEα Control
+                            of an Actuated Ankle-Foot Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IEEE Transactions on Automation
+                            Science and Engineering,
+                            vol. 23,
+                            pp. 6161–6174,
+                            2026.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/TASE.2026.3668272"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IEEE T-ASE
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 4 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        4
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            R. Jradi,
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            H. Rifaï,
+                            Y. Amirat,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Adaptive Control Strategy for Ankle
+                            Assistance Using an Actuated
+                            Ankle-Foot Orthosis With Selective
+                            Adaptive Parameter Convergence.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IEEE Robotics and Automation Letters,
+                            vol. 11,
+                            no. 2,
+                            pp. 1258–1265,
+                            2026.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/LRA.2025.3641107"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IEEE RA-L
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 5 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        5
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            H. Moon,
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            A. Boubezoul,
+                            L. Oukhellou,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Real-Time LSTM-Driven Dynamic
+                            Gait Mode Detection for Enhanced
+                            Control of Actuated Ankle-Foot Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IEEE Transactions on Robotics,
+                            vol. 41,
+                            pp. 4794–4809,
+                            2025.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/TRO.2025.3593111"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IEEE T-RO
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 6 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        6
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            Y. Amirat,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Adaptive Model-Free Control
+                            for Ankle-Assistive Orthosis:
+                            A Robust Approach to Real-Time
+                            Gait Tracking.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            Mechatronics,
+                            vol. 109,
+                            art. 103341,
+                            2025.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1016/j.mechatronics.2025.103341"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        Mechatronics
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 7 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        7
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>
+
+                            and M. Chemachema.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Finite-Time Event-Triggered
+                            Output-Feedback Adaptive Decentralized
+                            Echo-State Network Fault-Tolerant Control
+                            for Interconnected Pure-Feedback Nonlinear
+                            Systems with Input Saturation and External
+                            Disturbances:
+                            A Fuzzy Control-Error Approach.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            Information Sciences,
+                            vol. 669,
+                            art. 120557,
+                            2024.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1016/j.ins.2024.120557"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        Information Sciences
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 8 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        8
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>
+
+                            and M. Chemachema.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Decentralized Event-Triggered
+                            Output Feedback Adaptive Neural
+                            Network Control for a Class of
+                            MIMO Uncertain Strict-Feedback
+                            Nonlinear Systems with Input Saturation.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            International Journal of Adaptive
+                            Control and Signal Processing,
+                            vol. 38,
+                            no. 4,
+                            pp. 1420–1441,
+                            2024.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1002/acs.3757"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IJACSP
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPER 9 -->
+
+                <div
+                    class="publication-item"
+                    data-type="journal"
+                >
+
+                    <span class="publication-number">
+                        9
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>
+
+                            and M. Chemachema.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Control-Error-Based Output-Feedback
+                            Adaptive Decentralized Neural Network
+                            Controller for Interconnected Uncertain
+                            Strict-Feedback Nonlinear Systems
+                            with Input Saturation.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            Transactions of the Institute
+                            of Measurement and Control,
+                            vol. 46,
+                            no. 8,
+                            pp. 1529–1541,
+                            2024.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1177/01423312231198920"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        TIMC
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CONFERENCES -->
+
+            <div
+                class="publication-section-title"
+                data-section="conference"
+            >
+                International Conferences
+            </div>
+
+
+
+            <div
+                class="publication-list"
+                data-section="conference"
+            >
+
+
+                <div
+                    class="publication-item"
+                    data-type="conference"
+                >
+
+                    <span class="publication-number">
+                        1
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            M. Ferhat,
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            K. Pasini,
+                            L. Oukhellou,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Real-Time Comparative Study
+                            of AI-Driven Locomotion Detection
+                            for the Control of an Actuated
+                            Ankle-Foot Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            IFAC Joint Symposia on
+                            Mechatronics &amp; Robotics,
+                            Paris, France,
+                            July 2025,
+                            pp. 103–108.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1016/j.ifacol.2025.10.204"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        IFAC
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="publication-item"
+                    data-type="conference"
+                >
+
+                    <span class="publication-number">
+                        2
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            R. Jradi,
+                            H. Moon,
+                            H. Rifaï,
+                            K. D. Sharma,
+                            Y. Amirat,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            A Novel Funnel-Based L1 Adaptive
+                            Fuzzy Approach for the Control
+                            of an Actuated Ankle-Foot Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            2024 IEEE International Conference
+                            on Robotics and Automation (ICRA),
+                            Yokohama, Japan,
+                            May 2024,
+                            pp. 17487–17493.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.1109/ICRA57147.2024.10610584"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        ICRA
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="publication-item"
+                    data-type="conference"
+                >
+
+                    <span class="publication-number">
+                        3
+                    </span>
+
+
+                    <span class="publication-content">
+
+
+                        <span class="publication-authors">
+
+                            <strong>
+                                O. Bey
+                            </strong>,
+
+                            M. Chemachema,
+                            Y. Amirat,
+                            G. Fried,
+                            and S. Mohammed.
+
+                        </span>
+
+
+                        <span class="publication-title">
+
+                            Direct Adaptive Fuzzy-Based
+                            Neural Network Controller
+                            for a Human Driven-Knee Joint Orthosis.
+
+                        </span>
+
+
+                        <span class="publication-venue">
+
+                            2023 American Control Conference (ACC),
+                            San Diego,
+                            United States,
+                            May 2023,
+                            pp. 4677–4682.
+
+
+                            <a
+                                class="publication-link"
+                                href="https://doi.org/10.23919/ACC55779.2023.10155825"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                DOI
+                            </a>
+
+                        </span>
+
+
+                    </span>
+
+
+                    <span class="publication-badge">
+                        ACC
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     TEACHING
+========================================= -->
+
+<section
+    class="page"
+    id="page-teaching"
+>
+
+    <div class="page-inner">
+
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                04
+            </span>
+
+
+            <h2 class="page-title">
+                Teaching &amp; Supervision
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="teaching-summary">
+
+
+            <!-- PARIS SACLAY -->
+
+            <div class="teaching-experience">
+
+
+                <div>
+
+                    <div class="teaching-period">
+                        2026–2027
+                    </div>
+
+
+                    <div class="teaching-institution">
+
+                        Université Paris-Saclay
+
+                        <br>
+
+                        IUT de Cachan
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="teaching-role">
+                        ATER
+                    </div>
+
+
+                    <div class="teaching-modules">
+
+                        <span class="teaching-module">
+                            Software Engineering
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Electronics
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Industrial Computer Networks
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Automatic Control
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="teaching-volume">
+
+                    <strong>
+                        208
+                    </strong>
+
+                    <span>
+                        hours
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- UPEC -->
+
+            <div class="teaching-experience">
+
+
+                <div>
+
+                    <div class="teaching-period">
+                        2025–2026
+                    </div>
+
+
+                    <div class="teaching-institution">
+
+                        Université Paris-Est Créteil
+
+                        <br>
+
+                        UPEC
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="teaching-role">
+                        ATER
+                    </div>
+
+
+                    <div class="teaching-modules">
+
+                        <span class="teaching-module">
+                            Computer Science
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Automatic Control
+                        </span>
+
+
+                        <span class="teaching-module">
+                            SAE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="teaching-volume">
+
+                    <strong>
+                        172
+                    </strong>
+
+                    <span>
+                        hours
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- EPISEN -->
+
+            <div class="teaching-experience">
+
+
+                <div>
+
+                    <div class="teaching-period">
+                        2023–2025
+                    </div>
+
+
+                    <div class="teaching-institution">
+                        EPISEN · UPEC
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="teaching-role">
+                        Signal Processing
+                    </div>
+
+
+                    <div class="teaching-modules">
+
+                        <span class="teaching-module">
+                            Lectures
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Tutorials
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Laboratory Classes
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Fourier Analysis
+                        </span>
+
+
+                        <span class="teaching-module">
+                            Analog &amp; Digital Filters
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="teaching-volume">
+
+                    <strong>
+                        128
+                    </strong>
+
+                    <span>
+                        hours
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="teaching-total">
+
+            <span class="teaching-total-label">
+
+                Total documented university teaching
+
+            </span>
+
+
+            <span class="teaching-total-number">
+                508 hours
+            </span>
+
+        </div>
+
+
+
+        <div class="supervision-box">
+
+            <strong>
+                Student supervision.
+            </strong>
+
+            Supervision of Master 2 projects on
+            machine-learning-based gait-mode detection,
+            reinforcement-learning control of active
+            ankle-foot orthoses and biomechanical gait
+            analysis using wearable sensors
+            (EMG, IMU and FSR).
+
+            I also supervised secondary-school students
+            through the Apprentis-Chercheurs programme.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ACTIVITIES
+========================================= -->
+
+<section
+    class="page"
+    id="page-activities"
+>
+
+    <div class="page-inner">
+
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                05
+            </span>
+
+
+            <h2 class="page-title">
+                Scientific Activities
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="activities-list">
+
+
+            <div class="activity-item">
+
+                <div class="activity-type">
+                    Research
+                </div>
+
+
+                <div class="activity-text">
+
+                    Member of the Laboratoire des Signaux
+                    et Systèmes (L2S), SYCOMORE team,
+                    at Université Paris-Saclay.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+                <div class="activity-type">
+                    Reviewing
+                </div>
+
+
+                <div class="activity-text">
+
+                    Reviewer for international journals
+                    in robotics and control, including
+                    IEEE Transactions on Robotics and
+                    IEEE Robotics and Automation Letters.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+                <div class="activity-type">
+                    Conference
+                </div>
+
+
+                <div class="activity-text">
+
+                    Participation in the local organization
+                    of the IFAC Joint Symposium on Robotics
+                    and Mechatronics,
+                    Sorbonne Université,
+                    July 2025.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+                <div class="activity-type">
+                    Mentoring
+                </div>
+
+
+                <div class="activity-text">
+
+                    Supervision of students in the
+                    Apprentis-Chercheurs programme
+                    on gait-cycle analysis across
+                    different terrains.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="activity-item">
+
+                <div class="activity-type">
+                    Projects
+                </div>
+
+
+                <div class="activity-text">
+
+                    Supervision of research projects
+                    in gait-mode recognition,
+                    reinforcement-learning control
+                    and wearable-sensor-based
+                    biomechanical analysis.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section
+    class="page"
+    id="page-contact"
+>
+
+    <div class="page-inner">
+
+
+        <div class="page-title-row">
+
+            <span class="page-num">
+                06
+            </span>
+
+
+            <h2 class="page-title">
+                Contact
+            </h2>
+
+
+            <div class="page-line"></div>
+
+        </div>
+
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info">
+
+
+                <h3>
+                    Academic profiles &amp; contact
+                </h3>
+
+
+
+                <a
+                    class="contact-link"
+                    href="mailto:oussama.bey@l2s.centralesupelec.fr"
+                >
+
+                    <span class="contact-link-label">
+                        Email
+                    </span>
+
+
+                    <span class="contact-link-text">
+
+                        oussama.bey@l2s.centralesupelec.fr
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    class="contact-link"
+                    href="https://l2s.centralesupelec.fr/u/bey-oussama/"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    <span class="contact-link-label">
+                        L2S
+                    </span>
+
+
+                    <span class="contact-link-text">
+                        Official L2S profile
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    class="contact-link"
+                    href="https://cv.hal.science/oussama-bey"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    <span class="contact-link-label">
+                        HAL
+                    </span>
+
+
+                    <span class="contact-link-text">
+
+                        cv.hal.science/oussama-bey
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    class="contact-link"
+                    href="https://fr.linkedin.com/in/oussama-bey-"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    <span class="contact-link-label">
+                        LinkedIn
+                    </span>
+
+
+                    <span class="contact-link-text">
+
+                        linkedin.com/in/oussama-bey-
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    class="contact-link"
+                    href="https://github.com/oussamabey1"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    <span class="contact-link-label">
+                        GitHub
+                    </span>
+
+
+                    <span class="contact-link-text">
+
+                        github.com/oussamabey1
+
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+
+            <div class="contact-card">
+
+
+                <strong>
+                    Université Paris-Saclay
+                </strong>
+
+
+                <div class="contact-subtitle">
+
+                    Laboratoire des Signaux
+                    et Systèmes (L2S)
+
+                    <br>
+
+                    SYCOMORE Team
+
+                    <br><br>
+
+                    CentraleSupélec
+
+                    <br>
+
+                    3 rue Joliot Curie
+
+                    <br>
+
+                    91190 Gif-sur-Yvette,
+                    France
+
+                </div>
+
+
+                <div class="contact-topics">
+
+                    Automatic Control ·
+                    Nonlinear Systems ·
+                    Robotics ·
+                    Learning-Based Control
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="page-footer">
+
+    <p>
+        &copy; 2026 Oussama BEY —
+        Academic Portfolio
+    </p>
+
+
+    <p>
+        Université Paris-Saclay ·
+        L2S ·
+        SYCOMORE
+    </p>
+
+</footer>
+
+
+
+<script>
+
+function switchPage(pageName) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page) {
+
+            page
+                .classList
+                .remove("active");
+
+        });
+
+
+    const selectedPage =
+        document
+        .getElementById(
+            "page-" + pageName
+        );
+
+
+    if (selectedPage) {
+
+        selectedPage
+            .classList
+            .add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-tab")
+        .forEach(function(tab) {
+
+            tab
+                .classList
+                .remove("active");
+
+        });
+
+
+    const selectedTab =
+        document
+        .querySelector(
+            '.nav-tab[data-page="' +
+            pageName +
+            '"]'
+        );
+
+
+    if (selectedTab) {
+
+        selectedTab
+            .classList
+            .add("active");
+
+
+        try {
+
+            selectedTab
+                .scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "nearest",
+
+                    inline:
+                        "center"
+
                 });
 
-            const selectedPage =
-                document.getElementById("page-" + pageName);
+        }
 
-            if (selectedPage) {
-                selectedPage.classList.add("active");
+        catch (error) {}
 
-                selectedPage.style.animation = "none";
-                void selectedPage.offsetHeight;
-                selectedPage.style.animation = "";
-            }
+    }
 
-            document
-                .querySelectorAll(".nav-tab")
-                .forEach(function (tab) {
-                    tab.classList.remove("active");
-                });
 
-            const selectedTab =
-                document.querySelector(
-                    '.nav-tab[data-page="' + pageName + '"]'
+    window
+        .scrollTo({
+
+            top: 0,
+
+            behavior:
+                "smooth"
+
+        });
+
+
+    if (pageName === "home") {
+
+        animateCounters();
+
+    }
+
+}
+
+
+
+function animateCounters() {
+
+    document
+        .querySelectorAll(
+            ".stat-number[data-target]"
+        )
+        .forEach(function(element) {
+
+
+            const target =
+                parseInt(
+                    element.dataset.target,
+                    10
                 );
 
-            if (selectedTab) {
-                selectedTab.classList.add("active");
 
-                selectedTab.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "center"
-                });
-            }
+            const suffix =
+                element.dataset.suffix ||
+                "";
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
 
-            if (pageName === "home") {
-                animateCounters();
-            }
-        }
+            const start =
+                performance.now();
 
-        function animateCounters() {
-            document
-                .querySelectorAll(".stat-number[data-target]")
-                .forEach(function (element) {
-                    const target =
-                        parseInt(element.dataset.target, 10);
 
-                    const suffix =
-                        element.dataset.suffix || "";
+            const duration =
+                1400;
 
-                    const duration = 1500;
-                    const start = performance.now();
 
-                    function updateCounter(currentTime) {
-                        const progress =
-                            Math.min(
-                                (currentTime - start) / duration,
-                                1
-                            );
 
-                        const easedProgress =
-                            1 - Math.pow(1 - progress, 3);
+            function step(currentTime) {
 
-                        element.textContent =
-                            Math.round(easedProgress * target) +
-                            suffix;
 
-                        if (progress < 1) {
-                            requestAnimationFrame(
-                                updateCounter
-                            );
-                        }
-                    }
+                const progress =
+                    Math.min(
 
-                    requestAnimationFrame(updateCounter);
-                });
-        }
+                        (
+                            currentTime -
+                            start
+                        )
+                        /
+                        duration,
 
-        function initializeWebsite() {
-            document
-                .querySelectorAll(".nav-tab")
-                .forEach(function (tab) {
-                    tab.addEventListener(
-                        "click",
-                        function () {
-                            switchPage(tab.dataset.page);
-                        }
+                        1
                     );
-                });
 
-            document
-                .querySelectorAll(".filter-button")
-                .forEach(function (button) {
-                    button.addEventListener(
-                        "click",
-                        function () {
-                            document
-                                .querySelectorAll(
-                                    ".filter-button"
-                                )
-                                .forEach(
-                                    function (filterButton) {
-                                        filterButton
-                                            .classList
-                                            .remove("active");
-                                    }
-                                );
 
-                            button.classList.add("active");
+                const eased =
+                    1 -
+                    Math.pow(
+                        1 - progress,
+                        3
+                    );
 
-                            const selectedFilter =
-                                button.dataset.filter;
 
-                            document
-                                .querySelectorAll(
-                                    "#publicationContainer " +
-                                    ".publication-section-title, " +
-                                    "#publicationContainer " +
-                                    ".publication-list"
-                                )
-                                .forEach(function (element) {
-                                    const showSection =
-                                        selectedFilter === "all" ||
-                                        element.dataset.section ===
-                                        selectedFilter;
+                element.textContent =
 
-                                    element.style.display =
-                                        showSection
-                                            ? ""
-                                            : "none";
-                                });
+                    Math.round(
+                        eased *
+                        target
+                    )
+                    +
+                    suffix;
 
-                            document
-                                .querySelectorAll(
-                                    "#publicationContainer " +
-                                    ".publication-item"
-                                )
-                                .forEach(function (item) {
-                                    const showItem =
-                                        selectedFilter === "all" ||
-                                        item.dataset.type ===
-                                        selectedFilter;
 
-                                    item.classList.toggle(
-                                        "hidden",
-                                        !showItem
+                if (progress < 1) {
+
+                    requestAnimationFrame(
+                        step
+                    );
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                step
+            );
+
+        });
+
+}
+
+
+
+function initializeWebsite() {
+
+
+    document
+        .querySelectorAll(
+            ".nav-tab"
+        )
+        .forEach(function(tab) {
+
+
+            tab
+                .addEventListener(
+                    "click",
+                    function() {
+
+                        switchPage(
+                            tab.dataset.page
+                        );
+
+                    }
+                );
+
+
+        });
+
+
+
+    document
+        .querySelectorAll(
+            ".filter-button"
+        )
+        .forEach(function(button) {
+
+
+            button
+                .addEventListener(
+                    "click",
+                    function() {
+
+
+                        document
+                            .querySelectorAll(
+                                ".filter-button"
+                            )
+                            .forEach(
+                                function(item) {
+
+                                    item
+                                    .classList
+                                    .remove(
+                                        "active"
                                     );
 
-                                    if (showItem) {
-                                        item.style.animation =
-                                            "none";
+                                }
+                            );
 
-                                        void item.offsetHeight;
 
-                                        item.style.animation =
-                                            "";
-                                    }
-                                });
-                        }
-                    );
-                });
+                        button
+                            .classList
+                            .add(
+                                "active"
+                            );
 
-            setTimeout(animateCounters, 350);
-        }
 
-        if (document.readyState === "loading") {
-            document.addEventListener(
-                "DOMContentLoaded",
-                initializeWebsite
-            );
-        } else {
-            initializeWebsite();
-        }
-    </script>
+                        const filter =
+                            button
+                            .dataset
+                            .filter;
+
+
+
+                        document
+                            .querySelectorAll(
+
+                                "#publicationContainer " +
+                                ".publication-section-title," +
+
+                                "#publicationContainer " +
+                                ".publication-list"
+
+                            )
+                            .forEach(
+                                function(section) {
+
+
+                                    const show =
+
+                                        filter ===
+                                        "all"
+
+                                        ||
+
+                                        section
+                                        .dataset
+                                        .section ===
+                                        filter
+
+                                        ||
+
+                                        (
+                                            filter ===
+                                            "early"
+
+                                            &&
+
+                                            section
+                                            .dataset
+                                            .section ===
+                                            "journal"
+                                        );
+
+
+                                    section
+                                    .style
+                                    .display =
+
+                                        show
+                                        ?
+                                        ""
+                                        :
+                                        "none";
+
+
+                                }
+                            );
+
+
+
+                        document
+                            .querySelectorAll(
+
+                                "#publicationContainer " +
+                                ".publication-item"
+
+                            )
+                            .forEach(
+                                function(item) {
+
+
+                                    const types =
+
+                                        (
+                                            item
+                                            .dataset
+                                            .type ||
+                                            ""
+                                        )
+
+                                        .split(
+                                            " "
+                                        );
+
+
+                                    const show =
+
+                                        filter ===
+                                        "all"
+
+                                        ||
+
+                                        types
+                                        .includes(
+                                            filter
+                                        );
+
+
+                                    item
+                                    .classList
+                                    .toggle(
+
+                                        "hidden",
+
+                                        !show
+
+                                    );
+
+
+                                }
+                            );
+
+
+                    }
+                );
+
+
+        });
+
+
+
+    setTimeout(
+
+        animateCounters,
+
+        300
+
+    );
+
+}
+
+
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document
+        .addEventListener(
+
+            "DOMContentLoaded",
+
+            initializeWebsite
+
+        );
+
+}
+
+else {
+
+    initializeWebsite();
+
+}
+
+</script>
+
 
 </body>
 
